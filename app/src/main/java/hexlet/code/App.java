@@ -1,8 +1,8 @@
 package hexlet.code;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "gendiff",
@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 )
 
 
-class App implements Callable<Integer> {
+public class App implements Callable<Integer> {
 
     @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
     boolean versionInfoRequested;
@@ -25,7 +25,7 @@ class App implements Callable<Integer> {
     @Parameters(paramLabel = "filepath1", description = "path to first file")
     static String file1; // = "file1.json";
     @Parameters(paramLabel = "filepath2", description = "path to second file")
-    static String file2;//  = "file2.json";
+    static String file2; //  = "file2.json";
 
 
 

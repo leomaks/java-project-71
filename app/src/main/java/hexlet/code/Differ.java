@@ -24,12 +24,13 @@ public class Differ {
 
         String jsonInput = Files.readString(path);
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, String> map = mapper.readValue(jsonInput, new TypeReference<HashMap<String, String>>(){});
+        Map<String, String> map = mapper.readValue(jsonInput, new TypeReference<HashMap<String, String>>() {
+        });
 
         return map;
     }
 
-    public static String generate (String filePath1, String filePath2) throws Exception {
+    public static String generate(String filePath1, String filePath2) throws Exception {
 
         Map<String, String> map1 = getData(filePath1);
         Map<String, String> map2 = getData(filePath2);
@@ -43,17 +44,20 @@ public class Differ {
             String value0 = item.getValue();
             String key0 = item.getKey();
 
-            if ((map1.containsKey(key0)) && (map2.containsKey(key0)))
+            if ((map1.containsKey(key0)) && (map2.containsKey(key0))) {
                 if (map1.get(key0).equals(map2.get(key0))) {
-                    list.add(key0+ ": " + map1.get(key0));
+                    list.add(key0 + ": " + map1.get(key0));
                 } else {
                     list.add("- " + key0 + ": " + map1.get(key0));
-                    list.add("+ " + key0 + map2.get(key0));
+                    list.add("+ " + key0 + ": " + map2.get(key0));
                 }
-            if ((map1.containsKey(key0)) && (!map2.containsKey(key0)))
-                list.add("- " + key0 + ": " + map1.get(key0) );
-            if (!(map1.containsKey(key0)) && (map2.containsKey(key0)))
-                list.add("+ " + key0 + ": " +  map2.get(key0));
+            }
+            if ((map1.containsKey(key0)) && (!map2.containsKey(key0))) {
+                list.add("- " + key0 + ": " + map1.get(key0));
+            }
+            if (!(map1.containsKey(key0)) && (map2.containsKey(key0))) {
+                list.add("+ " + key0 + ": " + map2.get(key0));
+            }
         }
 
         String result = list.stream().collect(Collectors.joining("\n"));
