@@ -53,7 +53,7 @@ public class Differ {
                 }
             }
             if ((map1.containsKey(key0)) && (!map2.containsKey(key0))) {
-                list.add("- " + key0 + ": " + map1.get(key0));
+                list.add("- " + key0 + ": " + map1.get(key0))  ;
             }
             if (!(map1.containsKey(key0)) && (map2.containsKey(key0))) {
                 list.add("+ " + key0 + ": " + map2.get(key0));
