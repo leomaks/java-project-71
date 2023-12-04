@@ -1,7 +1,7 @@
 package hexlet.code;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
 
 import java.util.concurrent.Callable;
 
@@ -22,12 +22,12 @@ public class App implements Callable<Integer> {
 
     @Option(names = { "-f", "--format" }, paramLabel = "format", description = "output format [default: stylish]")
     String format;
-    @Parameters(paramLabel = "filepath1", description = "path to first file")
+   /* @Parameters(paramLabel = "filepath1", description = "path to first file")
     static String file1; // = "file1.json";
     @Parameters(paramLabel = "filepath2", description = "path to second file")
     static String file2; //  = "file2.json";
 
-
+*/
 
     public static void main(String[] args) throws Exception {
 
@@ -38,6 +38,9 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+
+        String file1 = "files/file1.json";
+        String file2 = "files/file2.json";
 
         String list = Differ.generate(file1, file2);
         System.out.println(list);

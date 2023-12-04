@@ -1,4 +1,6 @@
 .DEFAULT_GOAL := build-run
+setup: 
+	make -C app setup	
 
 clean:
 	make -C app clean
@@ -27,6 +29,8 @@ lint:
 update-deps:
 	make -C app update-deps
 
+check-deps:
+	make -C app check-deps
 
 build-run: build run
 
