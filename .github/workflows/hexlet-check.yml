@@ -24,7 +24,7 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/gradle-build-action@v2
 
-      - run: gradle checkstyleMain
+      - run: app/gradle checkstyleMain
       
       - name: Hexlet project check
         uses: hexlet/project-action@release
