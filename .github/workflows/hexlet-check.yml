@@ -27,9 +27,10 @@ jobs:
           gradle-version: 7.4
 
 
-      - run: gradle/gradle checkstyleMain
+      - run: .app/gradlew checkstyleMain
 
       - name: Hexlet project check
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+
