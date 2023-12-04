@@ -39,7 +39,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        String list = Differ.generate(file1, file2) ;
+        String list = Differ.generate(file1, file2);
         System.out.println(list);
         return null;
     }
