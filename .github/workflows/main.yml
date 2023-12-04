@@ -16,9 +16,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           
-      - name: Lint
-        run: lint
-    
-          
-      	
+
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.4
+      - run: ./gradlew checkstyleMain
+ 
      
