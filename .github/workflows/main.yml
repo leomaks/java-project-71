@@ -18,8 +18,7 @@ jobs:
           
       - name: Lint
         run: make lint
-        with:
-          build-root-directory: app
+    
           
       	
      
