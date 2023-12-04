@@ -1,10 +1,16 @@
-install:
-	make -C app install
+build:
+	make -C app build
+
 run-dist:
-	make -C run-dist
-run:
-	make -C app run
-	
-build-run: build run
+	make -C app run-dist
+
+test:
+	make -C app test
+
+report:
+	make -C app report
+
+lint:
+	make -C app lint
 
 .PHONY: build
