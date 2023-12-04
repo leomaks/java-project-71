@@ -46,4 +46,3 @@ bin/
 bin
 .project*
 .idea/
-app/.gradle
