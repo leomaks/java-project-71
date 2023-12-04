@@ -27,9 +27,7 @@ jobs:
           gradle-version: 7.4
 
 
-
-
-      - run: gradle checkstyleMain
+      - run: gradlew checkstyleMain
 
       - name: Hexlet project check
         uses: hexlet/project-action@release
