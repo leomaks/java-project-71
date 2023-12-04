@@ -2,7 +2,7 @@
 run-dist:	#запуск приложения
 	./build/install/app/bin/app
 lint:
-	@./gradlew checkstyleMain checkstyleTest
+	./gradlew checkstyleMain checkstyleTest
 	
 run:
 	./gradlew run
