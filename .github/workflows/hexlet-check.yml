@@ -17,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v37
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.4
