@@ -16,11 +16,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           
-
-      - uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 7.4
-          build-root-directory: app
-      - run: ./gradlew checkstyleMain
+      - name: Lint
+        run: make lint
  
      
