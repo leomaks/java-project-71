@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'application'
     id 'checkstyle'
+    id 'jacoco'
+
 }
 
 group = 'hexlet.code'
@@ -31,7 +33,16 @@ compileJava {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
+}
+
 
 
 compileJava {
@@ -42,3 +53,4 @@ run {
     standardInput = System.in
 }
 
+//tasks.jacocoTestReport { reports { xml.required.set(true) } }
