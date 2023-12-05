@@ -12,15 +12,14 @@ import java.util.HashMap;
 
 public class Parser {
 
-    public static Map<String, String> getMap(String input, String format) throws Exception {
+    public static Map<String, Object> getMap(String input, String format) throws Exception {
 
-        Map<String, String> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         ObjectMapper mapper = null;
 
         if (format.equals(".json")) {
             mapper = new ObjectMapper();
         }
-
         if (format.equals(".yml"))  {
             mapper = new ObjectMapper(new YAMLFactory());
         }
@@ -29,12 +28,12 @@ public class Parser {
             return map;
         }
 
-        map = mapper.readValue(input, new TypeReference<HashMap<String, String>>() {
+        map = mapper.readValue(input, new TypeReference<HashMap<String, Object>>() {
         });
 
         return map;
     }
-    public static Map<String, String> parse(String file) throws Exception {
+    public static Map<String, Object> parse(String file) throws Exception {
 
         String filePath = file;
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
@@ -45,7 +44,7 @@ public class Parser {
 
         String input = Files.readString(path);
         String format = filePath.substring(filePath.lastIndexOf("."));
-        Map<String, String> map = getMap(input, format);
+        Map<String, Object> map = getMap(input, format);
 
         return map;
     }
