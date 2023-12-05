@@ -1,0 +1,5 @@
+  host: hexlet.io
+  timeout: 255
+  proxy: 999.999.99.99
+  follow: next
+
