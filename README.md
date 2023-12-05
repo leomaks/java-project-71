@@ -5,5 +5,7 @@
 Studing project: Differ
 It is a studing project by Serzhena Norboeva
 
-Asciinema: https://asciinema.org/a/kTyo5qSfZ2gI8FdEdBIbh4zNz
+Asciinema for 5 step: https://asciinema.org/a/kTyo5qSfZ2gI8FdEdBIbh4zNz
+
+Asciinema for 7 step: https://asciinema.org/a/5fQJxLLITlqj6slDTCa5N6F3e
 

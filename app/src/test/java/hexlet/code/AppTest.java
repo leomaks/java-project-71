@@ -51,13 +51,13 @@ public class AppTest {
 
         assertEquals(trueYamlResult, Differ.generate(filepath1, filepath2));
     }
-   // @Test
+    @Test
     public void appTestYamlEmptyFile() throws Exception {
 
-        String result = "{\n- follow: false\n"
+        String result = "{\n- follow: next\n"
                 + "- host: hexlet.io\n"
-                + "- proxy: 123.234.53.22\n"
-                + "- timeout: 150\n}";
+                + "- proxy: 999.999.99.99\n"
+                + "- timeout: 255\n}";
 
         final String filepath1 = "./src/test/resources/file11.yml";
         final String filepath2 = "./src/test/resources/empty.yml";

@@ -14,18 +14,22 @@ public class Parser {
 
     public static Map<String, String> getMap(String input, String format) throws Exception {
 
-        Map<String, String> map;
+        Map<String, String> map = new HashMap<>();
         ObjectMapper mapper = null;
 
         if (format.equals(".json")) {
             mapper = new ObjectMapper();
         }
+
         if (format.equals(".yml"))  {
             mapper = new ObjectMapper(new YAMLFactory());
         }
 
-        map = mapper.readValue(input, new TypeReference<HashMap<String, String>>() {
+        if (input.isEmpty()) {
+            return map;
+        }
 
+        map = mapper.readValue(input, new TypeReference<HashMap<String, String>>() {
         });
 
         return map;
