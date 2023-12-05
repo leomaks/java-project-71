@@ -39,7 +39,7 @@ public class Differ {
         }
 
         String result = list.stream().collect(Collectors.joining("\n"));
-        result = "{\n"+ result + "\n}";
+        result = "{\n" + result + "\n}";
 
         return result;
 

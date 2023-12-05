@@ -17,12 +17,19 @@ public class Parser {
         Map<String, String> map;
         ObjectMapper mapper = null;
 
-        if (format.equals(".json")) mapper = new ObjectMapper();
-        if (format.equals(".yml"))  mapper = new ObjectMapper(new YAMLFactory());
+        if (format.equals(".json")) {
+            mapper = new ObjectMapper();
+        }
+        if (format.equals(".yml"))  {
+            mapper = new ObjectMapper(new YAMLFactory());
+        }
 
-        map = mapper.readValue(input, new TypeReference<HashMap<String, String>>() {});
+        map = mapper.readValue(input, new TypeReference<HashMap<String, String>>() {
+
+        });
+
         return map;
-}
+    }
     public static Map<String, String> parse(String file) throws Exception {
 
         String filePath = file;
