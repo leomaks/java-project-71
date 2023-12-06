@@ -1,36 +1,27 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Parser {
 
     public static Map<String, Object> getMap(String input, String format) throws Exception {
 
         Map<String, Object> map = new HashMap<>();
-        ObjectMapper mapper = null;
+        ObjectMapper mapper = format.equals(".json")?  mapper = new ObjectMapper()
+                : new ObjectMapper(new YAMLFactory());
 
-        if (format.equals(".json")) {
-            mapper = new ObjectMapper();
-        }
-        if (format.equals(".yml"))  {
-            mapper = new ObjectMapper(new YAMLFactory());
-        }
+         if (input.isEmpty()) {
+             return map;
+         }
 
-        if (input.isEmpty()) {
-            return map;
-        }
-
-        map = mapper.readValue(input, new TypeReference<HashMap<String, Object>>() {
-        });
-
+        map = mapper.readValue(input, Map.class);
         return map;
     }
     public static Map<String, Object> parse(String file) throws Exception {

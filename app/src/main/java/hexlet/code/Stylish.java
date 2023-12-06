@@ -4,19 +4,33 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Stylish {
-    public static String formate(ArrayList<String> list) {
+    public static String stringConstruct (String status, String key, Object value) {
+        return " ".repeat(2) + status + key + ": " + String.valueOf(value);
+    }
+
+    public static String getString(Item item) {
+        String s = "";
+
+        if (item.getStatus() == "constant")
+            s = stringConstruct("  ", item.getKey(), item.getOldValue());
+
+        if (item.getStatus() == "removed")
+            s = stringConstruct("- ", item.getKey(), item.getOldValue());
+
+        if (item.getStatus() == "added")
+            s = stringConstruct("+ ", item.getKey(), item.getNewValue());
+
+        if (item.getStatus() == "updated")
+            s = stringConstruct("- ", item.getKey(), item.getOldValue()) + "\n"
+                    + stringConstruct("+ ", item.getKey(), item.getNewValue());
+
+        return s;
+    }
+    public static String formate(ArrayList<Item> list) {
         var result = list.stream()
-                .map(x -> {
-                    if (x.charAt(0) == '+' || x.charAt(0) == '-') {
-                        return " ".repeat(2) + x;
-                    } else {
-                        return " ".repeat(4) + x;
-                    }
-                })
+                .map(x -> getString(x))
                 .collect(Collectors.joining("\n"));
 
-        result = "{\n" + result + "\n}";
-
-        return result;
+        return "{\n" + result + "\n}";
     }
 }
