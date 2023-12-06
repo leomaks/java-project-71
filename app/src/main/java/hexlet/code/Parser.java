@@ -14,12 +14,11 @@ public class Parser {
     public static Map<String, Object> getMap(String input, String format) throws Exception {
 
         Map<String, Object> map = new HashMap<>();
-        ObjectMapper mapper = format.equals(".json")?  mapper = new ObjectMapper()
-                : new ObjectMapper(new YAMLFactory());
+        ObjectMapper mapper = format.equals(".json") ? new ObjectMapper()  : new ObjectMapper(new YAMLFactory());
 
-         if (input.isEmpty()) {
-             return map;
-         }
+        if (input.isEmpty()) {
+            return map;
+        }
 
         map = mapper.readValue(input, Map.class);
         return map;

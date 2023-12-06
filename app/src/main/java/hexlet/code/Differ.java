@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    public static ArrayList<Item> getDif( Map<String, Object> map1,  Map<String, Object> map2) {
+    public static ArrayList<Item> getDif(Map<String, Object> map1,  Map<String, Object> map2) {
 
         Map<String, Object> treeMap = new TreeMap<String, Object>(map2);
         treeMap.putAll(map1);
@@ -17,9 +17,11 @@ public class Differ {
             String valueMap1 = String.valueOf(map1.get(key0));
             String valueMap2 = String.valueOf(map2.get(key0));
 
-            Item item = ((map1.containsKey(key0)) && (map2.containsKey(key0)))?
-                    (valueMap1.equals(valueMap2)) ? new Item( key0,"constant", valueMap1, ""): new Item( key0,"updated", valueMap1, valueMap2)
-                    : !map2.containsKey(key0) ? new Item( key0,"removed", valueMap1, "") : new Item( key0,"added", "", valueMap2);
+            Item item = ((map1.containsKey(key0)) && (map2.containsKey(key0)))
+                    ? (valueMap1.equals(valueMap2)) ? new Item(key0, "constant", valueMap1, "")
+                                                    : new Item(key0, "updated",  valueMap1,  valueMap2)
+                    : !map2.containsKey(key0) ? new Item(key0, "removed", valueMap1, "")
+                                                : new Item(key0, "added", "", valueMap2);
             items.add(item);
         }
 
