@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,10 +21,10 @@ public class Differ {
             String valueMap2 = String.valueOf(map2.get(key0));
 
             Item item = ((map1.containsKey(key0)) && (map2.containsKey(key0)))
-                    ? (valueMap1.equals(valueMap2)) ? new Item(key0, "constant", valueMap1, "")
-                                                    : new Item(key0, "updated",  valueMap1,  valueMap2)
-                    : !map2.containsKey(key0) ? new Item(key0, "removed", valueMap1, "")
-                                                : new Item(key0, "added", "", valueMap2);
+                    ? (valueMap1.equals(valueMap2)) ? new Item(key0, "constant", map1.get(key0), "")
+                                                    : new Item(key0, "updated",  map1.get(key0),  map2.get(key0))
+                    : !map2.containsKey(key0) ? new Item(key0, "removed", map1.get(key0), "")
+                                                : new Item(key0, "added", "", map2.get(key0));
             items.add(item);
         }
 
@@ -29,12 +32,16 @@ public class Differ {
     }
 
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
-        System.out.println(format);
-
+//        System.out.println(format);
         var listItems = getDif(Parser.parse(filePath1), Parser.parse(filePath2));
 
-        return Stylish.formate(listItems);
+        if (format.equals("plain")) {
+            return Plain.formate(listItems);
+        } else {
+            return Stylish.formate(listItems);
+        }
     }
+
     public static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
     }
