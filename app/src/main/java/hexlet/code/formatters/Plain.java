@@ -41,8 +41,9 @@ public class Plain {
     public static String formate(ArrayList<Item> list) {
         String s = "";
 
-        for (var x: list) {
-            s = s + (getString(x).isEmpty() ? "" : (getString(x) + "\n"));
+        for (var i = 0; i < list.size(); i++) {
+            s = s + (getString(list.get(i)).isEmpty() ? ""
+                    : (getString(list.get(i)) + ((i!= list.size()-1) ? "\n" : "")));
         }
         return s;
     }
