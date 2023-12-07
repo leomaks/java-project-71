@@ -43,7 +43,7 @@ public class App implements Callable<Integer> {
 
     //    String file1 = "app/files/file31.yml";
     //    String file2 = "app/files/file32.yml";
-      //  format = "json";
+    
         String list = Differ.generate(file1, file2, format);
         System.out.println(list);
         return null;

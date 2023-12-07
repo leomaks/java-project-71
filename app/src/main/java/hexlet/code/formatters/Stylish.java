@@ -33,6 +33,6 @@ public class Stylish {
                 .map(x -> getString(x))
                 .collect(Collectors.joining("\n"));
 
-        return "{\n" + result + "\n}";
+        return "{\n" + result + "\n}\n";
     }
 }
