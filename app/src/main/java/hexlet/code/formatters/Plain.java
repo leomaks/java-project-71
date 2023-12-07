@@ -43,7 +43,7 @@ public class Plain {
 
         for (var i = 0; i < list.size(); i++) {
             s = s + (getString(list.get(i)).isEmpty() ? ""
-                    : (getString(list.get(i)) + ((i!= list.size()-1) ? "\n" : "")));
+                    : (getString(list.get(i)) + ((i != list.size() - 1) ? "\n" : "")));
         }
         return s;
     }
