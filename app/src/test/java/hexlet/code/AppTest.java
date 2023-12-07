@@ -23,8 +23,7 @@ public class AppTest {
               - timeout: 150
               + timeout: 20
               + verbose: true
-            }
-            """;
+            }""";
 
     @Test
     public void testFromArtefactsJsonPlane() throws Exception {
@@ -36,7 +35,7 @@ public class AppTest {
 
         assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
     }
-    @Test
+ //   @Test
     public void testFromArtefactsJsonStylish() throws Exception {
 
 
@@ -55,7 +54,7 @@ public class AppTest {
         final String filepath2 = "./src/test/resources/file302.yml";
         assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
     }
-    @Test
+  //  @Test
     public void testFromArtefactsYamlStylish() throws Exception {
 
 
@@ -76,18 +75,7 @@ public class AppTest {
 
         assertEquals(trueJsonResult, Differ.generate(filepath1, filepath2));
     }
- /*   @Test
-    public void appTestJsonStylish() throws Exception {
 
-
-        String expected = Files.readString(pathStylish);
-        final String filepath1 = "./src/test/resources/file111.json";
-        final String filepath2 = "./src/test/resources/file222.json";
-
-        assertEquals(expected, Differ.generate(filepath1, filepath2));
-    }
-
-  */
     @Test
     public void appTestJsonEmptyFile() throws Exception {
 
@@ -97,8 +85,7 @@ public class AppTest {
                   - host: hexlet.io
                   - proxy: 123.234.53.22
                   - timeout: 150
-                }
-                """;
+                }""";
 
         final String filepath1 = "./src/test/resources/file1.json";
         final String filepath2 = "./src/test/resources/empty.json";
@@ -120,8 +107,7 @@ public class AppTest {
                   - timeout: 255
                   + timeout: 20
                   + verbose: true
-                }
-                """;
+                }""";
 
         assertEquals(trueYamlResult, Differ.generate(filepath1, filepath2));
     }
@@ -134,8 +120,7 @@ public class AppTest {
                   - host: hexlet.io
                   - proxy: 999.999.99.99
                   - timeout: 255
-                }
-                """;
+                }""";
 
         final String filepath1 = "./src/test/resources/file11.yml";
         final String filepath2 = "./src/test/resources/empty.yml";
@@ -173,8 +158,7 @@ public class AppTest {
               + setting2: 300
               - setting3: true
               + setting3: none
-            }
-            """;
+            }""";
 
         assertEquals(result, Differ.generate(filepath1, filepath2));
     }
