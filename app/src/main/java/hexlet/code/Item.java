@@ -6,19 +6,19 @@ public class Item {
     private String status;
     private Object oldValue;
     private Object newValue;
-    public String getKey() {
+    public final String getKey() {
         return key;
     }
 
-    public String getStatus() {
+    public final String getStatus() {
         return status;
     }
 
-    public Object getOldValue() {
+    public final Object getOldValue() {
         return oldValue;
     }
 
-    public Object getNewValue() {
+    public final Object getNewValue() {
         return newValue;
     }
 
