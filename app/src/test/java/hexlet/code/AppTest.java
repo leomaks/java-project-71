@@ -31,20 +31,10 @@ public class AppTest {
 
 
         String expected = Files.readString(pathPlain);
-        final String filepath1 = "./src/test/resources/file301.yml";
-        final String filepath2 = "./src/test/resources/file302.yml";
+        final String filepath1 = "./src/test/resources/file111.json";
+        final String filepath2 = "./src/test/resources/file222.json";
 
         assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
-    }
-
-    @Test
-
-    public void appTestJson() throws Exception {
-
-        final String filepath1 = "./src/test/resources/file1.json";
-        final String filepath2 = "./src/test/resources/file2.json";
-
-        assertEquals(trueJsonResult, Differ.generate(filepath1, filepath2));
     }
     @Test
     public void appTestJsonStylish() throws Exception {
@@ -54,8 +44,50 @@ public class AppTest {
         final String filepath1 = "./src/test/resources/file111.json";
         final String filepath2 = "./src/test/resources/file222.json";
 
+        assertEquals(expected, Differ.generate(filepath1, filepath2, "stylish"));
+    }
+///
+
+    @Test
+    public void appTestYamlPlane() throws Exception {
+        String expected = Files.readString(pathPlain);
+        final String filepath1 = "./src/test/resources/file301.yml";
+        final String filepath2 = "./src/test/resources/file302.yml";
+        assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
+    }
+    @Test
+    public void appTestYamlStylish() throws Exception {
+
+
+        String expected = Files.readString(pathStylish);
+        final String filepath1 = "./src/test/resources/file301.yml";
+        final String filepath2 = "./src/test/resources/file302.yml";
+
+        assertEquals(expected, Differ.generate(filepath1, filepath2, "stylish"));
+    }
+
+///
+    @Test
+
+    public void appTestJson() throws Exception {
+
+        final String filepath1 = "./src/test/resources/file1.json";
+        final String filepath2 = "./src/test/resources/file2.json";
+
+        assertEquals(trueJsonResult, Differ.generate(filepath1, filepath2));
+    }
+ /*   @Test
+    public void appTestJsonStylish() throws Exception {
+
+
+        String expected = Files.readString(pathStylish);
+        final String filepath1 = "./src/test/resources/file111.json";
+        final String filepath2 = "./src/test/resources/file222.json";
+
         assertEquals(expected, Differ.generate(filepath1, filepath2));
     }
+
+  */
     @Test
     public void appTestJsonEmptyFile() throws Exception {
 
