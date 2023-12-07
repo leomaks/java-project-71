@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew wrapper --gradle-version 7.4
+	./gradlew wrapper --gradle-version 7.0.9
 	
 clean:
 	./gradlew clean
