@@ -41,9 +41,9 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-     //   String file1 = "files/file31.yml";
-     //   String file2 = "files/file32.yml";
-
+    //    String file1 = "app/files/file31.yml";
+    //    String file2 = "app/files/file32.yml";
+      //  format = "json";
         String list = Differ.generate(file1, file2, format);
         System.out.println(list);
         return null;
