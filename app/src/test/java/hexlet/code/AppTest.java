@@ -141,25 +141,24 @@ public class AppTest {
     public void appTestJsonFormate() throws Exception {
 
         String result = """
-                [{"key":"chars1","status":"constant","oldValue":["a","b","c"],"newValue":""},
-                {"key":"chars2","status":"updated","oldValue":["d","e","f"],"newValue":false},
-                {"key":"checked","status":"updated","oldValue":false,"newValue":true},
-                {"key":"default","status":"updated","oldValue":null,"newValue":["value1","value2"]},
-                {"key":"id","status":"updated","oldValue":45,"newValue":null},
-                {"key":"key1","status":"removed","oldValue":"value1","newValue":""},
-                {"key":"key2","status":"added","oldValue":"","newValue":"value2"},
-                {"key":"numbers1","status":"constant","oldValue":[1,2,3,4],"newValue":""},
-                {"key":"numbers2","status":"updated","oldValue":[2,3,4,5],"newValue":[22,33,44,55]},
-                {"key":"numbers3","status":"removed","oldValue":[3,4,5],"newValue":""},
-                {"key":"numbers4","status":"added","oldValue":"","newValue":[4,5,6]},
-                {"key":"obj1","status":"added","oldValue":"","newValue":{"nestedKey":"value","isNested":true}},
-                {"key":"setting1","status":"updated","oldValue":"Some value","newValue":"Another valuettttt"},
-                {"key":"setting2","status":"updated","oldValue":200,"newValue":300},
-                {"key":"setting3","status":"updated","oldValue":true,"newValue":"none"}]
-                """;
+[{"key":"chars1","status":"constant","oldValue":["a","b","c"],"newValue":""},""" + """
+{"key":"chars2","status":"updated","oldValue":["d","e","f"],"newValue":false},""" + """
+{"key":"checked","status":"updated","oldValue":false,"newValue":true},""" + """
+{"key":"default","status":"updated","oldValue":null,"newValue":["value1","value2"]},""" + """
+{"key":"id","status":"updated","oldValue":45,"newValue":null},""" + """
+{"key":"key1","status":"removed","oldValue":"value1","newValue":""},""" + """
+{"key":"key2","status":"added","oldValue":"","newValue":"value2"},""" + """
+{"key":"numbers1","status":"constant","oldValue":[1,2,3,4],"newValue":""},""" + """
+{"key":"numbers2","status":"updated","oldValue":[2,3,4,5],"newValue":[22,33,44,55]},""" + """
+{"key":"numbers3","status":"removed","oldValue":[3,4,5],"newValue":""},""" + """
+{"key":"numbers4","status":"added","oldValue":"","newValue":[4,5,6]},""" + """
+{"key":"obj1","status":"added","oldValue":"","newValue":{"nestedKey":"value","isNested":true}},""" + """
+{"key":"setting1","status":"updated","oldValue":"Some value","newValue":"Another value"},""" + """
+{"key":"setting2","status":"updated","oldValue":200,"newValue":300},""" + """
+{"key":"setting3","status":"updated","oldValue":true,"newValue":"none"}]""";
 
         final String filepath1 = "./src/test/resources/file31.yml";
-        final String filepath2 = "./src/test/resources/file31.yml";
+        final String filepath2 = "./src/test/resources/file32.yml";
 
         assertEquals(result, Differ.generate(filepath1, filepath2, "json"));
     }
