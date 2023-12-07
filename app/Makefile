@@ -1,7 +1,5 @@
 .DEFAULT_GOAL := build-run
 
-setup:
-	./gradle wrapper --gradle-version 7.4
 
 clean:
 	./gradlew clean
@@ -27,11 +25,6 @@ report:
 lint:
 	./gradlew checkstyleMain checkstyleTest
 
-check-deps:
-	./gradlew dependencyUpdates -Drevision=release
-
-update-deps:
-	./gradlew useLatestVersions
 
 build-run: build run
 
