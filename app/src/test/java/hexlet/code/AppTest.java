@@ -27,17 +27,17 @@ public class AppTest {
             """;
 
     @Test
-    public void appTestJsonPlane() throws Exception {
+    public void testFromArtefactsJsonPlane() throws Exception {
 
 
         String expected = Files.readString(pathPlain);
-        final String filepath1 = "./src/test/resources/file111.json";
-        final String filepath2 = "./src/test/resources/file222.json";
+        final String filepath1 = "src/test/resources/file111.json";
+        final String filepath2 = "src/test/resources/file222.json";
 
         assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
     }
     @Test
-    public void appTestJsonStylish() throws Exception {
+    public void testFromArtefactsJsonStylish() throws Exception {
 
 
         String expected = Files.readString(pathStylish);
@@ -49,14 +49,14 @@ public class AppTest {
 ///
 
     @Test
-    public void appTestYamlPlane() throws Exception {
+    public void testFromArtefactsYamlPlane() throws Exception {
         String expected = Files.readString(pathPlain);
         final String filepath1 = "./src/test/resources/file301.yml";
         final String filepath2 = "./src/test/resources/file302.yml";
         assertEquals(expected, Differ.generate(filepath1, filepath2, "plain"));
     }
     @Test
-    public void appTestYamlStylish() throws Exception {
+    public void testFromArtefactsYamlStylish() throws Exception {
 
 
         String expected = Files.readString(pathStylish);
