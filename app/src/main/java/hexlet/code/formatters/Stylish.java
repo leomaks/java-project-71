@@ -1,7 +1,6 @@
 package hexlet.code.formatters;
 
 import hexlet.code.Item;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -11,20 +10,24 @@ public class Stylish {
     }
 
     public static String getString(Item item) {
-        String s = "";
 
-        if (item.getStatus() == "constant") {
-            s = stringConstruct("  ", item.getKey(), item.getOldValue());
-        }
-        if (item.getStatus() == "removed") {
-            s = stringConstruct("- ", item.getKey(), item.getOldValue());
-        }
-        if (item.getStatus() == "added") {
-            s = stringConstruct("+ ", item.getKey(), item.getNewValue());
-        }
-        if (item.getStatus() == "updated") {
-            s = stringConstruct("- ", item.getKey(), item.getOldValue()) + "\n"
-                    + stringConstruct("+ ", item.getKey(), item.getNewValue());
+        String s = "";
+        switch (item.getStatus()) {
+            case constant:
+                s = stringConstruct("  ", item.getKey(), item.getOldValue());
+                break;
+            case removed:
+                s = stringConstruct("- ", item.getKey(), item.getOldValue());
+                break;
+            case added:
+                s = stringConstruct("+ ", item.getKey(), item.getNewValue());
+                break;
+            case updated:
+                s = stringConstruct("- ", item.getKey(), item.getOldValue()) + "\n"
+                        + stringConstruct("+ ", item.getKey(), item.getNewValue());
+                break;
+            default:
+                System.out.println("Status" + item.getStatus() + "is not correct!");
         }
         return s;
     }

@@ -23,10 +23,13 @@ public class Parser {
         map = mapper.readValue(input, Map.class);
         return map;
     }
+    public static Path getPath(String file) throws Exception {
+        return Paths.get(file).toAbsolutePath().normalize();
+    }
     public static Map<String, Object> parse(String file) throws Exception {
 
         String filePath = file;
-        Path path = Paths.get(filePath).toAbsolutePath().normalize();
+        Path path = getPath(file);
 
         if (!Files.exists(path)) {
             throw new Exception("File '" + path + "' does not exist");

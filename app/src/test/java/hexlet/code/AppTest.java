@@ -4,15 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
 
-    private final Path pathPlain = Paths.get("./src/test/resources/resultPlain.txt").toAbsolutePath().normalize();
-    private final Path pathStylish = Paths.get("./src/test/resources/resultStylish.txt").toAbsolutePath().normalize();
-    private final Path pathJson = Paths.get("./src/test/resources/resultJson.txt").toAbsolutePath().normalize();
+    private final Path pathPlain = Parser.getPath("./src/test/resources/testPlain.txt");
+    private final Path pathStylish = Parser.getPath("./src/test/resources/resultStylish.txt");
+    private final Path pathJson = Parser.getPath("./src/test/resources/resultJson.txt");
 
     private final String filepath1 = "./src/test/resources/file1.json";
     private final String filepath2 = "./src/test/resources/file2.json";
@@ -20,6 +19,8 @@ public class AppTest {
     private final String filepathYml1 = "./src/test/resources/file31.yml";
     private final String filepathYml2 = "./src/test/resources/file32.yml";
 
+    public AppTest() throws Exception {
+    }
 
 
     @Test

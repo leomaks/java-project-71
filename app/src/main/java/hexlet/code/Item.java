@@ -1,17 +1,20 @@
 package hexlet.code;
 
+
 public class Item {
 
     private String key;
-    private String status;
     private Object oldValue;
     private Object newValue;
+
+    private Status status;
+
     public final String getKey() {
         return key;
     }
 
-    public final String getStatus() {
-        return status;
+    public final Status getStatus() {
+        return this.status;
     }
 
     public final Object getOldValue() {
@@ -22,7 +25,7 @@ public class Item {
         return newValue;
     }
 
-    public Item(String key, String status, Object oldValue, Object newValue) {
+    public Item(String key, Status status, Object oldValue, Object newValue) {
         this.key = key;
         this.status = status;
         this.oldValue = oldValue;
