@@ -40,7 +40,7 @@ public class Plain {
                         + " to " + getValue(item.getNewValue());
                 break;
             default:
-                System.out.println("Status" + item.getStatus() + "is not correct!");
+                s = "";
         }
         return s;
 

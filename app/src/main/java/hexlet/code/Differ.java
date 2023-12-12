@@ -21,7 +21,7 @@ public class Differ {
             case "json":
                 return Json.formate(listItems);
             default:
-                System.out.println("Format" + format + "is not correct!");
+                System.out.println("Format" + format + " is not correct!");
         }
         return Stylish.formate(listItems);
     }

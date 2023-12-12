@@ -26,8 +26,7 @@ public class Stylish {
                 s = stringConstruct("- ", item.getKey(), item.getOldValue()) + "\n"
                         + stringConstruct("+ ", item.getKey(), item.getNewValue());
                 break;
-            default:
-                System.out.println("Status" + item.getStatus() + "is not correct!");
+            default: s = "";
         }
         return s;
     }
