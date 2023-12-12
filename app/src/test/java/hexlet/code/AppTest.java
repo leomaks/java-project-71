@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
 
-    private final Path pathPlain = Parser.getPath("./src/test/resources/testPlain.txt");
-    private final Path pathStylish = Parser.getPath("./src/test/resources/resultStylish.txt");
-    private final Path pathJson = Parser.getPath("./src/test/resources/resultJson.txt");
+    private final Path pathPlain = Differ.getPath("./src/test/resources/testPlain.txt");
+    private final Path pathStylish =  Differ.getPath("./src/test/resources/resultStylish.txt");
+    private final Path pathJson =  Differ.getPath("./src/test/resources/resultJson.txt");
 
     private final String filepath1 = "./src/test/resources/file1.json";
     private final String filepath2 = "./src/test/resources/file2.json";
