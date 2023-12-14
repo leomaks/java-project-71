@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.formatters.BaseFormatter;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,7 +35,7 @@ public class Differ {
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
 
         ArrayList<Item> listItems = GenerateDiffer.getDif(getMap(filePath1), getMap(filePath2));
-        return BazeFormatter.generateFormat(format, listItems);
+        return BaseFormatter.generateFormat(format, listItems);
     }
 
     public static String generate(String filePath1, String filePath2) throws Exception {

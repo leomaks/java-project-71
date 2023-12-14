@@ -1,5 +1,6 @@
-package hexlet.code;
+package hexlet.code.formatters;
 
+import hexlet.code.Item;
 import hexlet.code.formatters.Json;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
@@ -7,7 +8,7 @@ import hexlet.code.formatters.Stylish;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class BazeFormatter {
+public class BaseFormatter {
     public static String generateFormat(String format,  ArrayList<Item> listItems) throws IOException {
 
         switch (format) {
@@ -18,7 +19,7 @@ public class BazeFormatter {
             case "json":
                 return Json.formate(listItems);
             default:
-                throw new Error("Unknown format: " + format + " !");
+                throw new RuntimeException("Unknown format: " + format + " !");
         }
     }
 }
