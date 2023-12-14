@@ -8,7 +8,7 @@ import java.util.Map;
 
 
 public class Differ {
-    public static Path getPath(String file) throws Exception {
+    public static Path getPath(String file)  {
         return Paths.get(file).toAbsolutePath().normalize();
     }
 
@@ -16,10 +16,6 @@ public class Differ {
 
         Path path = getPath(file);
         String input = Files.readString(path);
-
-        if (!Files.exists(path)) {
-            throw new Exception("File '" + path + "' does not exist");
-        }
 
         String format = file.substring(file.lastIndexOf("."));
         Map<String, Object> map = Parser.parse(input, format);

@@ -9,7 +9,7 @@ import java.util.Map;
 public class Plain {
 
     public static String stringConstruct(Item item) {
-        return "Property " + "\'" + item.getKey() + "\'" + " was " + item.getStatus();
+        return "Property " + "\'" + item.getKey() + "\'" + " was " + item.getStatus().toString().toLowerCase();
     }
 
 
@@ -30,11 +30,11 @@ public class Plain {
         String s = "";
         switch (item.getStatus()) {
 
-            case removed: s = stringConstruct(item);
+            case REMOVED: s = stringConstruct(item);
                 break;
-            case added: s = stringConstruct(item) + " with value: " + getValue(item.getNewValue());
+            case ADDED: s = stringConstruct(item) + " with value: " + getValue(item.getNewValue());
                 break;
-            case updated: s = stringConstruct(item) + ". From " + getValue(item.getOldValue())
+            case UPDATED: s = stringConstruct(item) + ". From " + getValue(item.getOldValue())
                         + " to " + getValue(item.getNewValue());
                 break;
             default: s = "";

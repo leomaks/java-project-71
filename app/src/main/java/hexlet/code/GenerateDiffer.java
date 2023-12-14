@@ -17,10 +17,10 @@ public class GenerateDiffer {
             String valueMap2 = String.valueOf(map2.get(key0));
 
             Item item = ((map1.containsKey(key0)) && (map2.containsKey(key0)))
-                    ? (valueMap1.equals(valueMap2)) ? new Item(key0, Status.constant, map1.get(key0), "")
-                    : new Item(key0, Status.updated,  map1.get(key0),  map2.get(key0))
-                    : !map2.containsKey(key0) ? new Item(key0, Status.removed, map1.get(key0), "")
-                    : new Item(key0, Status.added, "", map2.get(key0));
+                    ? (valueMap1.equals(valueMap2)) ? new Item(key0, Status.CONSTANT, map1.get(key0), "")
+                    : new Item(key0, Status.UPDATED,  map1.get(key0),  map2.get(key0))
+                    : !map2.containsKey(key0) ? new Item(key0, Status.REMOVED, map1.get(key0), "")
+                    : new Item(key0, Status.ADDED, "", map2.get(key0));
             items.add(item);
         }
 

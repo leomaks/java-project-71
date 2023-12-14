@@ -13,16 +13,16 @@ public class Stylish {
 
         String s = "";
         switch (item.getStatus()) {
-            case constant:
+            case CONSTANT:
                 s = stringConstruct("  ", item.getKey(), item.getOldValue());
                 break;
-            case removed:
+            case REMOVED:
                 s = stringConstruct("- ", item.getKey(), item.getOldValue());
                 break;
-            case added:
+            case ADDED:
                 s = stringConstruct("+ ", item.getKey(), item.getNewValue());
                 break;
-            case updated:
+            case UPDATED:
                 s = stringConstruct("- ", item.getKey(), item.getOldValue()) + "\n"
                         + stringConstruct("+ ", item.getKey(), item.getNewValue());
                 break;
