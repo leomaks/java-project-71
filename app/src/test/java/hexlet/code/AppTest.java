@@ -5,7 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
-import java.nio.file.Files;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,9 +20,9 @@ public class AppTest {
 
     @BeforeAll
     public static void beforeAll() throws IOException {
-        expectedStylish = Files.readString(Differ.getPath("./src/test/resources/resultStylish.txt"));
-        expectedPlain = Files.readString(Differ.getPath("./src/test/resources/testPlain.txt"));
-        expectedJson = Files.readString(Differ.getPath("./src/test/resources/testJson.txt"));
+        expectedStylish = Differ.getStringFromFile("./src/test/resources/resultStylish.txt");
+        expectedPlain = Differ.getStringFromFile("./src/test/resources/testPlain.txt");
+        expectedJson = Differ.getStringFromFile("./src/test/resources/testJson.txt");
     }
 
 

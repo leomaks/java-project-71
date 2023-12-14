@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,13 +13,19 @@ public class Differ {
         return Paths.get(file).toAbsolutePath().normalize();
     }
 
+    public static String getFormat(String file)  {
+        return file.substring(file.lastIndexOf("."));
+    }
+
+    public static String getStringFromFile(String file) throws IOException {
+        Path path = getPath(file);
+        return Files.readString(path);
+    }
+
     public static Map<String, Object> getMap(String file) throws Exception {
 
-        Path path = getPath(file);
-        String input = Files.readString(path);
-
-        String format = file.substring(file.lastIndexOf("."));
-        Map<String, Object> map = Parser.parse(input, format);
+        String input = getStringFromFile(file);
+        Map<String, Object> map = Parser.parse(input, getFormat(file));
 
         return map;
     }
