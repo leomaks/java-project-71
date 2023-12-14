@@ -30,19 +30,19 @@ public class AppTest {
 
     @ParameterizedTest
     @ValueSource(strings = { "json", "yml" })
-    public void appTestStylish(String ext) throws Exception {
+    public final void appTestStylish(String ext) throws Exception {
         assertEquals(expectedStylish, Differ.generate(file1 + ext, file2 + ext, "stylish"));
     }
 
     @ParameterizedTest
     @ValueSource(strings = { "json", "yml" })
-    public void appTestDefault(String ext) throws Exception {
+    public final void appTestDefault(String ext) throws Exception {
         assertEquals(expectedStylish, Differ.generate(file1 + ext, file2 + ext));
     }
 
     @ParameterizedTest
     @ValueSource(strings = { "json", "yml" })
-    public void appTestPlain(String ext) throws Exception {
+    public final void appTestPlain(String ext) throws Exception {
         assertEquals(expectedPlain, Differ.generate(file1 + ext, file2 + ext, "plain"));
     }
 
@@ -50,7 +50,7 @@ public class AppTest {
 
     @ParameterizedTest
     @ValueSource(strings = { "json", "yml" })
-    public void appTestJson(String ext) throws Exception {
+    public final void appTestJson(String ext) throws Exception {
         assertEquals(expectedJson, Differ.generate(file1 + ext, file2 + ext, "json"));
     }
 
