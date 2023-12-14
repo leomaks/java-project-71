@@ -30,7 +30,7 @@ public class Stylish {
         }
         return s;
     }
-    public static String formate(ArrayList<Item> list) {
+    public static String format(ArrayList<Item> list) {
         var result = list.stream()
                 .map(x -> getString(x))
                 .collect(Collectors.joining("\n"));

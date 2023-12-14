@@ -42,7 +42,7 @@ public class Plain {
 
         return s;
     }
-    public static String formate(ArrayList<Item> list) throws IOException {
+    public static String format(ArrayList<Item> list) throws IOException {
 
         String s = "";
         for (var i = 0; i < list.size(); i++) {

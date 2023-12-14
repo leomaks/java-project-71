@@ -16,7 +16,7 @@ public class Differ {
     }
 
     public static String getFormat(String file)  {
-        return file.substring(file.lastIndexOf("."));
+        return file.substring(file.lastIndexOf(".") + 1);
     }
 
     public static String getStringFromFile(String file) throws IOException {

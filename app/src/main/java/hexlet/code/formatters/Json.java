@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 public class Json {
-    public static String formate(ArrayList<Item> list) throws IOException {
+    public static String format(ArrayList<Item> list) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(list);
     }

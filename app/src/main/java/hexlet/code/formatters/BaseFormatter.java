@@ -10,11 +10,11 @@ public class BaseFormatter {
 
         switch (format) {
             case "stylish":
-                return Stylish.formate(listItems);
+                return Stylish.format(listItems);
             case "plain":
-                return Plain.formate(listItems);
+                return Plain.format(listItems);
             case "json":
-                return Json.formate(listItems);
+                return Json.format(listItems);
             default:
                 throw new RuntimeException("Unknown format: " + format + " !");
         }

@@ -11,7 +11,18 @@ public class Parser {
     public static Map<String, Object> parse(String input, String format) throws Exception {
 
         Map<String, Object> map = new HashMap<>();
-        ObjectMapper mapper = format.equals(".json") ? new ObjectMapper()  : new ObjectMapper(new YAMLFactory());
+
+        ObjectMapper mapper;
+
+        switch (format) {
+            case "json": mapper = new ObjectMapper();
+                break;
+            case "yml": mapper = new ObjectMapper(new YAMLFactory());
+                break;
+            case "yaml": mapper = new ObjectMapper(new YAMLFactory());
+                break;
+            default: mapper = new ObjectMapper();
+        }
 
         if (input.isEmpty()) {
             return map;
