@@ -34,7 +34,7 @@ public class Differ {
 
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
 
-        ArrayList<Item> listItems = GenerateDiffer.getDif(getMap(filePath1), getMap(filePath2));
+        ArrayList<Item> listItems = GenerateDiff.getDiff(getMap(filePath1), getMap(filePath2));
         return BaseFormatter.generateFormat(format, listItems);
     }
 
