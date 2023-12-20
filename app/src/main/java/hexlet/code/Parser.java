@@ -18,7 +18,8 @@ public class Parser {
             case "json": mapper = new ObjectMapper();
                 break;
             case "yml":
-            case "yaml": mapper = new ObjectMapper(new YAMLFactory());
+            case "yaml":
+                mapper = new ObjectMapper(new YAMLFactory());
                 break;
             default:  throw new RuntimeException("Unknown format: " + format + " !");
         }

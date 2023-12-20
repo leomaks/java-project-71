@@ -44,7 +44,7 @@ public class Plain {
         return s;
     }
     public static String format(ArrayList<Item> list) throws IOException {
-        
+
         var result = list.stream()
                 .filter(x -> (!getString(x).equals("")))
                 .map(x -> getString(x))
