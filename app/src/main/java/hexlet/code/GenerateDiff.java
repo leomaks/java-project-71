@@ -30,10 +30,8 @@ public class GenerateDiff {
                 item = new Item(key, Status.UPDATED, map1.get(key), map2.get(key));
             }
 
-
-
+            
             items.add(item);
-            System.out.println(items);
         }
 
         return items;
