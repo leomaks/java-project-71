@@ -10,29 +10,30 @@ public class GenerateDiff {
         Map<String, Object> treeMap = new TreeMap<String, Object>(map2);
         treeMap.putAll(map1);
         ArrayList<Item> items = new ArrayList<>();
+        ArrayList<Map<String, Object>> hotelsByService;
+
 
         for (var x: treeMap.entrySet()) {
-            String key0 = String.valueOf(x.getKey());
-            String valueMap1 = String.valueOf(map1.get(key0));
-            String valueMap2 = String.valueOf(map2.get(key0));
+            String key = String.valueOf(x.getKey());
+            String valueMap1 = String.valueOf(map1.get(key));
+            String valueMap2 = String.valueOf(map2.get(key));
 
             Item item;
 
-            if ((map1.containsKey(key0)) && (map2.containsKey(key0))) {
-                if ((valueMap1.equals(valueMap2))) {
-                    item = new Item(key0, Status.CONSTANT, map1.get(key0), "");
-                } else {
-                    item = new Item(key0, Status.UPDATED, map1.get(key0), map2.get(key0));
-                }
+            if (!map1.containsKey(key)) {
+                item = new Item(key, Status.ADDED, "", map2.get(key));
+            } else if (!map2.containsKey(key)) {
+                item = new Item(key, Status.REMOVED, map1.get(key), "");
+            } else if (valueMap1.equals(valueMap2)) {
+                item = new Item(key, Status.CONSTANT, map1.get(key), "");
             } else {
-                if (!map2.containsKey(key0)) {
-                    item = new Item(key0, Status.REMOVED, map1.get(key0), "");
-                } else {
-                    item = new Item(key0, Status.ADDED, "", map2.get(key0));
-                }
+                item = new Item(key, Status.UPDATED, map1.get(key), map2.get(key));
             }
 
+
+
             items.add(item);
+            System.out.println(items);
         }
 
         return items;

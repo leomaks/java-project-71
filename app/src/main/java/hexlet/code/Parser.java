@@ -17,11 +17,10 @@ public class Parser {
         switch (format) {
             case "json": mapper = new ObjectMapper();
                 break;
-            case "yml": mapper = new ObjectMapper(new YAMLFactory());
-                break;
+            case "yml":
             case "yaml": mapper = new ObjectMapper(new YAMLFactory());
                 break;
-            default: mapper = new ObjectMapper();
+            default:  throw new RuntimeException("Unknown format: " + format + " !");
         }
 
         if (input.isEmpty()) {

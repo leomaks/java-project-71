@@ -5,6 +5,7 @@ import hexlet.code.Item;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Plain {
 
@@ -43,13 +44,13 @@ public class Plain {
         return s;
     }
     public static String format(ArrayList<Item> list) throws IOException {
+        
+        var result = list.stream()
+                .filter(x -> (!getString(x).equals("")))
+                .map(x -> getString(x))
+                .collect(Collectors.joining("\n"));
 
-        String s = "";
-        for (var i = 0; i < list.size(); i++) {
-            s = s + (getString(list.get(i)).isEmpty() ? ""
-                    : (getString(list.get(i)) + ((i != list.size() - 1) ? "\n" : "")));
-        }
+        return result;
 
-        return s;
     }
 }
