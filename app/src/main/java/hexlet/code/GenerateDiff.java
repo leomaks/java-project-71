@@ -10,8 +10,6 @@ public class GenerateDiff {
         Map<String, Object> treeMap = new TreeMap<String, Object>(map2);
         treeMap.putAll(map1);
         ArrayList<Item> items = new ArrayList<>();
-        ArrayList<Map<String, Object>> hotelsByService;
-
 
         for (var x: treeMap.entrySet()) {
             String key = String.valueOf(x.getKey());

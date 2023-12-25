@@ -24,7 +24,7 @@ public class Differ {
         return Files.readString(path);
     }
 
-    public static Map<String, Object> getMap(String file) throws Exception {
+    public static Map<String, Object> parseFile(String file) throws Exception {
 
         String input = getStringFromFile(file);
         Map<String, Object> map = Parser.parse(input, getFormat(file));
@@ -34,7 +34,7 @@ public class Differ {
 
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
 
-        ArrayList<Item> listItems = GenerateDiff.getDiff(getMap(filePath1), getMap(filePath2));
+        ArrayList<Item> listItems = GenerateDiff.getDiff(parseFile(filePath1), parseFile(filePath2));
         return BaseFormatter.generateFormat(format, listItems);
     }
 

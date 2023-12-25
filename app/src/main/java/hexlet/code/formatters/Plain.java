@@ -46,8 +46,8 @@ public class Plain {
     public static String format(ArrayList<Item> list) throws IOException {
 
         var result = list.stream()
-                .filter(x -> (!getString(x).equals("")))
                 .map(x -> getString(x))
+                .filter(x -> (!x.equals("")))
                 .collect(Collectors.joining("\n"));
 
         return result;
